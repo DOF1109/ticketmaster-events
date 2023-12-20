@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import './App.css'
 import Events from './components/Events/Events'
-import SignUpForm from './components/SignUpForm/SignUpForm';
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
+
+  useEffect(()=>{
+    console.log("useEffect");
+  }, [])
 
   const handleNavbarSearch = (value) => {
     setSearchValue(value)
@@ -13,9 +16,8 @@ function App() {
 
   return (
     <>
-      <SignUpForm />
-      {/*<Navbar onSearch={handleNavbarSearch} />
-      <Events searchValue={searchValue} />*/}
+      <Navbar onSearch={handleNavbarSearch} />
+      <Events searchValue={searchValue} />
     </>
   )
 }
