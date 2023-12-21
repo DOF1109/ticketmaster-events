@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { useState, forwardRef, useImperativeHandle } from "react";
 
-const Navbar = ({onSearch}) => {
-    const [search, setSearch] = useState('');
+const Navbar = forwardRef(({onSearch}, ref) => {
+    const [search, setSearch] = useState('')
+
+    // Expongo lo necesario al padre, necesito su referencia
+    // puedo exponer atributos o metodos
+    useImperativeHandle(ref, ()=>({
+        search,
+    }))
 
     const handleInputChange = (event) => {
         setSearch(event.target.value);
@@ -13,7 +19,7 @@ const Navbar = ({onSearch}) => {
     };
     
     return(
-        <>
+        <div ref={ref}>
             <p>Mi boletera</p>
             <input 
                 type="text" 
@@ -22,8 +28,11 @@ const Navbar = ({onSearch}) => {
                 onKeyDown={handleInputKeyDown}
                 value={search}
             />
-        </>
+        </div>
     );
-};
+});
+
+// Para evitar warnings en la consola del navegador usando forwardRef
+Navbar.displayName = "Navbar"
 
 export default Navbar;

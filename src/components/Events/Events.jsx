@@ -2,7 +2,7 @@ import useEventsData from "../../hooks/useEventsData";
 import EventItems from "./components/EventItems/EventItems";
 
 const Events = ({searchValue}) => {
-    const {events} = useEventsData()
+    const {events, isLoading, error} = useEventsData()
 
     const handleEventClick = (id) => {
         console.log(`Evento clickeado con id: ${id}`);
@@ -26,6 +26,12 @@ const Events = ({searchValue}) => {
             />
         ))
     };
+
+    if (error)
+        return <p>Ocurrió un error, recargue por favor</p>
+
+    if (isLoading)
+        return <p>Cargando...</p>
 
     return(
         <>
