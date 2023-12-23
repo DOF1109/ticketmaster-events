@@ -1,4 +1,5 @@
 import { useState, forwardRef, useImperativeHandle } from "react";
+import './Navbar.css'
 
 const Navbar = forwardRef(({onSearch}, ref) => {
     const [search, setSearch] = useState('')
@@ -19,15 +20,19 @@ const Navbar = forwardRef(({onSearch}, ref) => {
     };
     
     return(
-        <div ref={ref}>
-            <p>Mi boletera</p>
-            <input 
-                type="text" 
-                placeholder="Buscar evento" 
-                onChange={handleInputChange} 
-                onKeyDown={handleInputKeyDown}
-                value={search}
-            />
+        <div ref={ref} className="container">
+            <div className="container-title">
+                <h1>Mi boletera</h1>
+            </div>
+            <div className="container-search">
+                <input 
+                    type="text" 
+                    placeholder="Buscar evento" 
+                    onChange={handleInputChange} 
+                    onKeyDown={handleInputKeyDown}
+                    value={search}
+                />
+            </div>
         </div>
     );
 });

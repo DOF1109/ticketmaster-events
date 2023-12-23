@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    margin: .5rem auto;
+    max-width: 1000px;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.container-title{
+    font-size: 0.75rem;
+}
