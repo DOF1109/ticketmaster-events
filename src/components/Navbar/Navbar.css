@@ -1,9 +1,10 @@
 .container{
     display: flex;
-    margin: .5rem auto;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     max-width: 1000px;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .container-title{
