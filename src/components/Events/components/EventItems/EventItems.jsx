@@ -1,4 +1,6 @@
-const EventItems = ({id, info, name, image, onEventClick}) => {
+import './EventItem.css'
+
+const EventItem = ({id, info, name, image, onEventClick}) => {
 
     const handleSeeMoreClick = (event) => {
         // Detiene la propagacion del evento (onClick en este caso) del padre
@@ -7,13 +9,15 @@ const EventItems = ({id, info, name, image, onEventClick}) => {
     };
 
     return (
-        <div onClick={() => console.log("Padre clickeado")}>
+        <div className='event-item-container' onClick={() => console.log("Padre clickeado")}>
             <img src={image} alt={name} width='200' height='200' />
-            <h4>{name}</h4>
-            <p>{info}</p>
-            <button onClick={handleSeeMoreClick}>Ver más</button>
+            <div className='event-info-container'>
+                <h4 className='event-name'>{name}</h4>
+                <p className='event-info line-clamp'>{info}</p>
+                <button className='btn-see-more' onClick={handleSeeMoreClick}>Ver más</button>
+            </div>
         </div>
     );
 };
 
-export default EventItems;
+export default EventItem;

@@ -1,0 +1,34 @@
+.event-item-container{
+    display: flex;
+    align-items: center;
+    margin: 2rem 1rem;
+}
+
+.event-info-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.event-name{
+    font-size: 1.25rem;
+}
+
+.event-info{
+    margin: .5rem 0;
+    text-align: left;
+}
+
+/* Limito la cantidad de lineas del texto */
+.line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
+.btn-see-more{
+    border: 1px solid gray;
+    border-radius: 10px;
+}
