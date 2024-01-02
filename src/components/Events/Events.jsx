@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import useEventsData from "../../hooks/useEventsData";
 import EventItems from "./components/EventItems/EventItems";
 
 const Events = ({searchValue}) => {
     const {events, isLoading, error} = useEventsData()
+    const navigate = useNavigate()
 
     const handleEventClick = (id) => {
-        console.log(`Evento clickeado con id: ${id}`);
+        navigate(`/detail/${id}`)
     };
     
     // Muestra los eventos y los filtra si se inició la busqueda
